@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <title>Airline Reservation System</title>
+  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body>
+    
+	<div id="booking" class="section">
+		<div class="section-center">
+           
+			<div class="container">
+                <div id="wrapper">
+                    <select class="button" onmousedown="this.value='';" onchange="sort(this.value)">
+                      <option selected>Sort By</option>
+                      <option value="price">Price</option>
+                      <option value="duration">Duration</option>
+                      <option value="arrivalTime">Arrival</option>
+                      <option value="departureTime">Departure</option>
+                      <option value="seats">No Of Seats</option>
+                      <option value="airline">Airline</option>
+                    </select>
+                  </div>
+                  <br>
+                  <div id="wrapper">
+                    <select class="button" onmousedown="this.value='';" onchange="filter(this.value)">
+                      <option selected>Filter By</option>
+                      <option value="price">Price</option>
+                      <option value="duration">Duration</option>
+                      <option value="arrival">Arrival</option>
+                      <option value="departure">Departure</option>
+                      <option value="airline">Airline</option>
+                    </select>
+                  </div>
+                  <br>
+                  <div class="slidecontainer hidden" id="myRange">
+                    <input type="range" min="1000" max="10000" value="50" class="slider" data-show-value="true" onchange="filterbyPrice(this.value)">
+                    <input type="text" id="textInput" value="">
+                  </div>
+                  <div class="hidden" id="radio">
+                    <input type="radio" name="radio" value="2" onclick="filterbyDuration()"> <2 
+                    <input type="radio" name="radio" value="3" onclick="filterbyDuration()">>=2 and <3
+                    <input type="radio" name="radio" value="4" onclick="filterbyDuration()">>=3
+                  </div>
+                  <div class="hidden" id="airlineradio">
+                    <input type="radio" name="radio" value="2" onclick="filterbyAirline()">Indigo
+                    <input type="radio" name="radio" value="3" onclick="filterbyAirline()">Air India
+                    <input type="radio" name="radio" value="4" onclick="filterbyAirline()">Jet Airways
+                  </div>
+                  <div id="time" class="hidden">
+                    <select onmousedown="this.value='';" onchange="filterbyTime(this.value)">
+                      <option value="1" selected>12.00 - 2.59 </option>
+                      <option value="2">03.00 - 5.59 </option>
+                      <option value="3">06.00 - 8.59 </option>
+                      <option value="4">09.00 - 11.59 </option>
+                      
+                    </select>
+                    <select onmousedown="this.value='';" onchange="filterbyTime1(this.value)">
+                      <option value="AM">A.M. </option>
+                      <option value="PM">P.M. </option>
+                      
+                    </select>
+                  </div>
+				<div class="row">
+					<div class="booking-form">
+						<form>
+                            <table class="form-control" id="table">
+                                <thead>
+                                    <tr>
+                                        <th>Source</th>
+                                        <th>Destination</th>
+                                        <th>Departure Time</th>
+                                        <th>Arrival Time</th>
+                                        <th>Duration</th>
+                                        <th>Airline</th>
+                                        <th>Available Seats</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                               
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+<script src="js/result.js"></script>
+</html>
